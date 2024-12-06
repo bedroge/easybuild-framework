@@ -3487,7 +3487,7 @@ class EasyBlock(object):
         self.sanity_check_linked_shared_libs()
 
         if self.toolchain.use_rpath:
-            self.sanity_check_rpath()
+            self.sanity_check_rpath(check_readelf_rpath=self.cfg['sanity_check_rpath_readelf'])
         else:
             self.log.debug("Skipping RPATH sanity check")
 
@@ -3664,7 +3664,7 @@ class EasyBlock(object):
             self.fake_mod_data = None
 
         if self.toolchain.use_rpath:
-            rpath_fails = self.sanity_check_rpath()
+            rpath_fails = self.sanity_check_rpath(check_readelf_rpath=self.cfg['sanity_check_rpath_readelf'])
             if rpath_fails:
                 self.log.warning("RPATH sanity check failed!")
                 self.sanity_check_fail_msgs.extend(rpath_fails)
