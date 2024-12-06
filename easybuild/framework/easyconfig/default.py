@@ -130,6 +130,7 @@ DEFAULT_CONFIG = {
                                    "Using a non-tuple is equivalent to (name, '-h')"), BUILD],
     'sanity_check_paths': [{}, ("List of files and directories to check "
                                 "(format: {'files':<list>, 'dirs':<list>})"), BUILD],
+    'sanity_check_rpath_readelf': [True, "Check whether binaries have an RPATH section using 'readelf -d'", BUILD],
     'skip': [False, "Skip existing software", BUILD],
     'skipsteps': [[], "Skip these steps", BUILD],
     'source_urls': [[], "List of URLs for source files", BUILD],
